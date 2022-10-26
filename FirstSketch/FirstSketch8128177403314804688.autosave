@@ -1,0 +1,16 @@
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  background(100);
+}
+
+function draw() {
+  translate(width/2,height/2)
+  rotate(frameCount)
+  translate(frameCount,0)
+  if(frameCount%5<3){
+    fill(137-random(200), 80, 120)
+  }else{
+    fill(110-random(300), 100, 111)  
+  }
+  rect(-10,-203,-50,-50)
+}
