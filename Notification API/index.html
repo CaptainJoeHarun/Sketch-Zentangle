@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function ask_for_permission() {
+        // Definiert was die Funktion macht.
+        Notification.requestPermission(function () {}); // Dieser Code Fragt mit dem Popup Fenster ob es erlaubt ist Nachrichten zu senden.
+      }
+
+      function send() {
+        // Definiert die "send" Funktion
+        new Notification(document.getElementById("title").value, {
+          // Erstellt eine Notification mit dem Wert vom Input Feld auf Linie 21.
+          body: document.getElementById("body").value, // Setzt die Body der Notification zum Wert des Input Felds auf Linie 23.
+          icon: document.getElementById("icon").value, // Setzt das Icon der Notification mit dem Wert im Feld auf Linie 25.
+        });
+      }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <!--Hier wird das css verlinkt.-->
+  </head>
+  <body onload="init()">
+    <!-- Die "init()" Funktion existiert nicht ?-->
+    <button id="ask_permission" onclick="ask_for_permission()">
+      Aktivieren
+    </button>
+    <!-- Zeigt die Funktion "ask_for_permisson" aus-->
+    <div>
+      <h1>Titel:</h1>
+      <input id="title" value="Neue Benachrichtigung" /><br />
+      <!--Was der Titel von der Notifcation ist -->
+      <h1>Inhalt:</h1>
+      <input id="body" value="Ich bin eine Webnotification!" /><br />
+      <!-- Was der Inhalt ist der Notification ist -->
+      <h1>Icon:</h1>
+      <input
+        id="icon"
+        value="https://moodle-2.zli.ch/pluginfile.php/1/core_admin/logocompact/300x300/1663342924/ZLI-Logo-ohne-Schriftzug-RGB.png"
+      /><br />
+      <!-- Das Icon der Notification -->
+      <button id="send" onclick="send()">Senden</button>
+      <!-- Wenn der "Senden" Knopf gedrückt wird, wird die funktion "send()" called. -->
+    </div>
+  </body>
+</html>
